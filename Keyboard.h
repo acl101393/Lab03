@@ -8,7 +8,7 @@ using namespace std;
 
 namespace CSC2110
 {
-class Keyboard
+class Keyboard   //this is the keyboard class
 {
    private:
       Keyboard();
