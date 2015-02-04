@@ -1,6 +1,6 @@
 #include "Password.h"
 using CSC2110::ListArrayIterator;
-//
+
 #include <iostream>
 using namespace std;
 
@@ -12,7 +12,8 @@ Password::Password()
 
 Password::~Password()
 {
-
+	delete viable_words;
+	delete all_words;
 }
 
 void Password::addWord(String* word)

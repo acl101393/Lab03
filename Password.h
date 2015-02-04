@@ -2,6 +2,9 @@
 #define PASSWORD_H
 
 //complete the includes
+#include "ListArray.h"
+
+using namespace CSC2110;
 
 class Password
 {
