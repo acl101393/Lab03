@@ -24,17 +24,31 @@ void Password::addWord(String* word)
 
 void Password::guess(int try_password, int num_matches)
 {
-	
+    ListArrayIterator<Strings>* itor = viable_words->iterator();
+    String* guess = getOriginalWord(try_password);
+    ListArray<String>* new_viable_words = new ListArray<String>();
+    while(itor->hasNext())
+    {
+        String* item = itor->next();
+        if(num_matches == getNumMatches(item,guess))
+        {
+            new_viable_words->add(item);
+        }
+    }
 }
 
 int Password::getNumberOfPasswordsLeft()
 {
 	return viable_word->size();
 }
-
 void Password::displayViableWords()
 {
-	
+    ListArrayIterator<Strings>* itor = viable_words->iterator();
+    while(itor->hasNext())
+    {
+        String* item = itor->next();
+        item->displayString();
+    }
 }
 
 int Password::bestGuess()
@@ -54,7 +68,7 @@ int Password::bestGuess()
       //count up the number of matches between a possible password and a word in the original list
       int* count_num_matches = new int[len + 1];
 
-      for (int i = 0; i < len; i++) 
+      for (int i = 0; i < len; i++)
       {
          count_num_matches[i] = 0;
       }
@@ -71,7 +85,7 @@ int Password::bestGuess()
       //find the largest number in the count_num_matches array
       //the largest number indicates the guess that will generate the most eliminations
       int most_num_matches = 0;
-      for (int j = 0; j < len; j++) 
+      for (int j = 0; j < len; j++)
       {
          int curr_num_matches = count_num_matches[j];
          if (curr_num_matches > most_num_matches)
@@ -89,7 +103,7 @@ int Password::bestGuess()
          best_num_eliminated = num_eliminated;
          best_guess_index = count;
       }
-      
+
       count++;
       delete[] count_num_matches;
    }

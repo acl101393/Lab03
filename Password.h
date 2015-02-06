@@ -1,7 +1,7 @@
 #if !defined PASSWORD_H
 #define PASSWORD_H
+#include "Text.h"
 
-//complete the includes
 #include "ListArray.h"
 
 using namespace CSC2110;

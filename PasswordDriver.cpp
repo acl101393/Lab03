@@ -1,5 +1,9 @@
+
 #include "Password.h"
-//fill in includes, don't forget namespaces
+#include "Keyboard.h"
+#include "ReadFile.h"
+
+
 using namespace CSC2110;
 
 #include <iostream>
@@ -8,7 +12,7 @@ using namespace std;
 void addWords(Password* fh)
 {
    Keyboard* kb = Keyboard::getKeyboard();
-   String* file_str = kb->readString("Enter the file name containing the possible passwords: ");
+   String* file_str = kb->readString("Enter the file name containing the possible passwords:");
    ReadFile* rf = new ReadFile(file_str->getText());
    delete file_str;
 
